@@ -3,14 +3,14 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Detailed Feedback Screen</title>
+        <title>Final Feedback Screen</title>
         <meta content="width=device-width, initial-scale=1" name="viewport">
     		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="style.css" rel="stylesheet" type="text/css">
     		<script src="connections.js"></script>
 
     </head>
-<body class="body">
+    <body class="body">
   <div class="wrapper">
     <div class="window">
       <div class="top w-clearfix">
@@ -19,13 +19,6 @@
         <div class="page">Page 1/3</div>
       </div>
       <div class="middle w-clearfix">
-        <div id="intro">
-          <p id="typedtext" class="mid-left-top-text"></p>
-          <video id="samIntro" class="vid-leftmost-intro w-embed w-video" playsinline autoplay>
-            <source src="detailed_feedback_intro.mp4" type="video/mp4">
-          </video>
-          <button style="margin-top: -34px; margin-left: 14px;" class="button skip" ONCLICK="next();">SKIP</button>
-        </div>
         <div class="helpText">
       		<div>	Click 'Next' to continue, or on the link below for more information about this choice.</div>
       		<div style="padding: 0">
@@ -33,81 +26,34 @@
             <h2 style="color: #00ff00; font-size: 13px;">Body Language</h2>
           </div>
       	</div>
-        <div id="card1">
+        <div class="left-card">
           <div class="front">
-            <h2>
-              THIS HAPPENED
-            </h2>
-          </div>
-
-          <div class="back">
               <div class="">
                 <h2>
                   THIS HAPPENED
                 </h2>
               </div>
-                <video id="happened" class="vid-leftmost-happened w-embed w-video" playsinline >
+                <video id="happened" class="vid-final w-embed w-video" playsinline >
                   <source src="s1_t0001.mp4" type="video/mp4">
                 </video>
-                <button style="margin-top: 154px; margin-left: -234px;" class="button" ONCLICK='inner(this); pauser(this); audio()'>REPLAY</button>
+                <button id="happened-button" style="margin-top: 120px; margin-left: -234px;" class="button" ONCLICK='inner(this); paused(); this.parentElement.getElementsByTagName("video")[0].paused? this.parentElement.getElementsByTagName("video")[0].play() : this.parentElement.getElementsByTagName("video")[0].pause()'>REPLAY</button>
               <p class="mid-left-top-text">Interviewer:
                 <br>So, I'm Michael Great to meet you ........... .................. ........... ............. ........... .............. .................. ..............</p>
           </div>
         </div>
-        <div id="card2">
+        <div class="middle-card">
           <div class="front">
-            <h2>
-                YOU CHOSE
-            </h2>
-          </div>
-          <div class="back">
-            <ul class="tabs">
-              <li class="tab-link current" data-tab="tab-1"><h2 style="font-size: 10px; margin: 0px; padding: 0px 3px;">YOU CHOSE</h2></li>
-              <li class="tab-link" data-tab="tab-2"><h2 style="font-size: 10px; margin: 0px; padding: 0px 1px;">YOU REJECTED</h2></li>
-              <li class="tab-link" data-tab="tab-3"><h2 style="font-size: 10px; margin: 0px; padding: 0px 1px;">YOU REJECTED</h2></li>
-            </ul>
-              <div id=tab-1 class="tab-content current">
-                <div class="middle-mid">
-                  <video width="245" height="150" id="chose" class="w-embed w-video" playsinline style="margin-left: 5%" >
-                    <source src="s1_y0002.mp4" type="video/mp4">
-                  </video>
-                  <button style="margin-top: 122px; margin-left: -215px;" class="button" ONCLICK='inner(this); pauser(this); audio()'>REPLAY</button>
-                  <p class="mid-left-top-text" style="margin-top: 10px">Sam:
-                    <br>It was really good to meet you ........... .................. ........... ............. ........... .............. .................. ..............
-                  </p>
-                </div>
-              </div>
-              <div id=tab-2 class="tab-content">
-                <div class="middle-mid">
-                  <video width="245" height="150" id="rejected" class="w-embed w-video" playsinline style="margin-left: 5%" >
-                    <source src="s1_y0004.mp4" type="video/mp4">
-                  </video>
-                  <button style="margin-top: 122px; margin-left: -215px;" class="button" ONCLICK='inner(this); pauser(this); audio()'>REPLAY</button>
-                  <p class="mid-left-top-text">Sam:
-                    <br>It was really good to meet you ........... .................. ........... ............. ........... .............. .................. ..............
-                  </p>
-                </div>
-              </div>
-              <div id=tab-3 class="tab-content">
-                <div class="middle-mid">
-                  <video width="245" height="150" id="rejected2" class="w-embed w-video" playsinline style="margin-left: 5%" >
-                    <source src="s1_y0006.mp4" type="video/mp4">
-                  </video>
-                  <button style="margin-top: 122px; margin-left: -215px;" class="button" ONCLICK='inner(this); pauser(this); audio()'>REPLAY</button>
-                  <p class="mid-left-top-text">Sam:
-                    <br>It was really good to meet you ........... .................. ........... ............. ........... .............. .................. ..............
-                  </p>
-                </div>
-              </div>
+            <video id="samIntro" class="vid-final w-embed w-video" playsinline autoplay onended="document.querySelector('.pause').innerHTML = 'play_arrow';">
+              <source src="s1_f0018.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
-        <div id="card3">
-          <div id="blow" class="front">
-            <img class="mid-right-img" src="btn_feedback_up_blank.png">
+        <div class="arrow-left"></div>
+        <div class="right-card">
+          <div class="front">
+            <p id="typedtext" class="mid-left-top-text"></p>
+            <!-- <p class="mid-left-top-text">So, I'm Michael Great to meet you ........... .................. ........... ............. ........... .............. .................. ..............</p> -->
           </div>
-          <div class="back">
-            <img id="forBlow" onmouseover="bigImg(this)" onmouseout="normalImg(this)" class="mid-right-img" src="btn_feedback_up.png">
-        </div>
         </div>
       </div>
       <div class="bottom">
@@ -118,7 +64,7 @@
         <div class="bottom-wrapper">
           <div class="prev material-icons"></div>
           <div class="next material-icons" ONCLICK="next();"></div>
-          <i class="pause material-icons" ONCLICK="pause();">pause</i>
+          <i class="pause material-icons" ONCLICK="pause(); pausered();">pause</i>
         </div>
         <div class="bottom-wrapper">
           <div class="home material-icons" ONCLICK="Home();"></div>
